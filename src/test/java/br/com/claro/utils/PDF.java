@@ -173,8 +173,8 @@ PDF {
 	public static void inserePrint() {
 		try {
 			Thread.sleep(200);
-			TiraPrint.screenShot();
-			Image img = Image.getInstance("C:\\Automacao\\Img\\" + TiraPrint.nomeArquivo);
+			Screenshot.takeScreenshot();
+			Image img = Image.getInstance("C:\\Automacao\\Img\\" + Screenshot.nomeArquivo);
 
 			PdfPCell print = new PdfPCell(new PdfPCell(img));
 			print.setPaddingTop(10);
@@ -209,19 +209,19 @@ PDF {
 		}
 	}
 
-	public static void escreveErroComponente(String componente) {
+	public static void escreveErroException(String componente) {
 
 		final String ANSI_RED = "\u001B[31m";
 		final String ANSI_RESET = "\u001B[0m";
 
-		// Adicona uma linha em branco depois do cabeçalho
-		PdfPCell pulaLinha = new PdfPCell(new Paragraph(" "));
-		pulaLinha.setColspan(3);
-		pulaLinha.setBorder(-1);
-		table.addCell(pulaLinha);
+//		// Adicona uma linha em branco depois do cabeçalho
+//		PdfPCell pulaLinha = new PdfPCell(new Paragraph(" "));
+//		pulaLinha.setColspan(3);
+//		pulaLinha.setBorder(-1);
+//		table.addCell(pulaLinha);
 
 		font = new Font(Font.HELVETICA, 16, Font.BOLDITALIC, new Color(255, 0, 0));
-		PdfPCell tituloLog = new PdfPCell(new Paragraph("Falha ao validar o componente!!!", font));
+		PdfPCell tituloLog = new PdfPCell(new Paragraph("Falha na execução do teste!!!", font));
 		// textoLog = new PdfPCell(new Paragraph(parametro));
 		tituloLog.setColspan(3);
 		tituloLog.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -234,8 +234,6 @@ PDF {
 		textoloLog.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
 		textoloLog.setBorder(-1);
 		table.addCell(textoloLog);
-
-		// PDF.salvaDocumento();
 
 		System.out.println(ANSI_RED + "Falha na execução do teste, favor consultar o log!!!" + ANSI_RESET);
 	}
