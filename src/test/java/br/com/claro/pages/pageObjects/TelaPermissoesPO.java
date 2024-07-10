@@ -14,8 +14,6 @@ public class TelaPermissoesPO extends DriverFactory {
     public TelaPermissoesPO() {
 
     }
-
-    //public static List<String > listBtnRoot = "//android.widget.Button[@resource-id='android:id/button1']";
     public static String  btnRoot = "//android.widget.Button[@resource-id='android:id/button1']";
     public static String logoPermissoes1 = "//android.widget.LinearLayout[@resource-id='com.claro.claromusica.br:id/linearLayout_header']/android.widget.ImageView[1]";
     public static String logoPermissoes2 = "//android.widget.LinearLayout[@resource-id='com.claro.claromusica.br:id/linearLayout_header']/android.widget.ImageView[2]";

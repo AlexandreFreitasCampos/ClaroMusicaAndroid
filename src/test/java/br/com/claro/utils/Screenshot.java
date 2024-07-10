@@ -25,8 +25,8 @@ public class Screenshot extends DriverFactory{
         BufferedImage originalImage = ImageIO.read(screenshot);
 
         // Redimensiona a imagem
-        int newWidth = 800; // largura desejada
-        int newHeight = 500; // altura desejada
+        int newWidth = 600; // largura desejada
+        int newHeight = 1200; // altura desejada
         BufferedImage resizedImage = resizeImage(originalImage, newWidth, newHeight);
 
         // Salva a imagem redimensionada

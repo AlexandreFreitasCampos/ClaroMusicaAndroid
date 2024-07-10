@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Checar URL') {
             steps {
-                git 'https://github.com/AlexandreFreitasCampos/IRP.git'
+                git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
             }
         }
-        stage('Gerar relatórios personalizados') {
+        stage('Regressivo Claro Musica') {
             steps {
                 bat 'mvn clean test'
             }

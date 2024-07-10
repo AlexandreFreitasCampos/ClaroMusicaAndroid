@@ -9,7 +9,7 @@ Funcionalidade: Testes exploratórios na aplicação
   E melhorar o tempo de execução
 
   Cenario: Validar a tela de permissoes
-    Dado que criei o arquivo "validar_textos_tela_de_permissoes"
+    Dado que criei o arquivo "tela_de_permissoes"
     Quando valido a imagem "logo claro musica1" "Tela de permissões"
     E valido a imagem "logo claro musica2" "Tela de permissões"
     E valido o texto "Bem-vindo ao novo Claro música!" "Tela de permissões"
@@ -31,14 +31,55 @@ Funcionalidade: Testes exploratórios na aplicação
     E clico no botao "Aceitar e continuar" "Tela de permissões"
     Entao salvo o documento
 
-#  Cenario: Efetuar login com email (Usuario gratis)
-#    Dado que criei o arquivo  "login_email_usuario_gratis_cm_web"
-#    Quando valido a url "https://www.claromusica.com/landing"
-#    E valido a imagem "Ícone de idiomas"
-#    E valido a imagem "logoClaroMusica"
-#    E valido o texto "Ouça tudo o que você  ama, em um só lugar."
-#    E valido o texto "Mais de 100 milhões de músicas, playlists e recomendações personalizadas."
-#    E valido o componente "Botão escute grátis"
-#    E valido o componente "Botão Entrar"
-#    Entao clico no "Botão Entrar"
+  Cenario: Validar a landing page
+    Dado que criei o arquivo "landing_page"
+    Quando valido a imagem "Logo Claro Musica superior" "Landing Page"
+    E valido a imagem "Ícone de idiomas" "Landing Page"
+    E valido a imagem "Logo Claro Musica central" "Landing Page"
+    E valido o texto "Ouça tudo o que você ama, em um só lugar." "Landing Page"
+    E valido o texto "Mais de 100 milhões de músicas, playlists e recomendações personalizadas." "Landing Page"
+    E valido o texto "Escute grátis" "Landing Page"
+    E valido o texto "Entrar" "Landing Page"
+    E clico no botao "Entrar" "Landing Page"
+    Entao salvo o documento
 
+  Cenario: Efetuar cadastro com MSISDN
+    Dado que criei o arquivo "cadastro_msisdn"
+    Quando valido a imagem "Logo Claro Musica msisdn" "CadastroMSISDN"
+    E valido a imagem "Ícone de idiomas" "CadastroMSISDN"
+    E valido o texto "Entrar com seu número Claro" "CadastroMSISDN"
+    E valido o texto "Seu número Claro" "CadastroMSISDN"
+    E valido o texto "Ou entre com" "CadastroMSISDN"
+    E valido a imagem "Ícone Email" "CadastroMSISDN"
+    E valido a imagem "Ícone Facebook" "CadastroMSISDN"
+    E valido a imagem "Ícone Claro TV" "CadastroMSISDN"
+    E valido o texto "Ao utilizar nossos serviços, você aceita os Termos e Condições e Política de Privacidade" "CadastroMSISDN"
+    E valido a imagem "Botão seguinte" "CadastroMSISDN"
+    E insiro o texto "21966124127" "CadastroMSISDN"
+    E clico no botao "Seguinte" "CadastroMSISDN"
+    Entao salvo o documento
+
+  Cenario: Realizar o onboarding
+    Dado que criei o arquivo "onboarding"
+    Quando valido o texto "Escolha pelo menos 3 artistas que você goste" "Onboarding"
+    E valido a imagem "Campo de busca" "Onboarding"
+    E seleciono os 1 primeiros artistas "Onboarding"
+    E valido o texto "Escolha pelo menos mais 2 artistas que você goste" "Onboarding"
+    E seleciono os 2 primeiros artistas "Onboarding"
+    E valido o texto "Escolha pelo menos mais 1 artista" "Onboarding"
+    E seleciono os 3 primeiros artistas "Onboarding"
+    E valido o texto "Fique à vontade para escolher até 10 artistas" "Onboarding"
+    E seleciono os 4 primeiros artistas "Onboarding"
+    E valido o texto "Você pode continuar selecionando até 10 artistas" "Onboarding"
+    Entao seleciono os 10 primeiros artistas "Onboarding"
+    Quando valido o texto "Você já escolheu seus 10 artistas" "Onboarding"
+    E valido a imagem "Botão Pular" "Onboarding"
+    E valido a imagem "Botão Continuar" "Onboarding"
+    Entao clico no botao "Continuar" "Onboarding"
+    Quando valido a imagem "Artistas selecionados" "Onboarding"
+    E valido o texto "Boa escolha!" "Onboarding"
+    E valido o texto "Radio, DJ’s, shows exclusivos e muito mais" "Onboarding"
+    E valido a imagem "Botão Tocar agora" "Onboarding"
+    E valido a imagem "Botão Agora não" "Onboarding"
+    E clico no botao "Agora não" "Onboarding"
+    Entao  salvo o documento

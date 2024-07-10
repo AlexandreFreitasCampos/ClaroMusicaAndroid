@@ -33,8 +33,7 @@ PDF {
 
 	public static void criaDocumento(String nomeDocumento) throws DocumentException, IOException {
 		document = new Document(PageSize.A4, 30, 30, 30, 30);
-		PdfWriter.getInstance(document, new FileOutputStream("C:\\Automacao\\Evidencias\\" + nomeDocumento + ".pdf"));
-
+		PdfWriter.getInstance(document, new FileOutputStream("C:\\Automacao\\Evidencias\\Claro Musica Android\\" + nomeDocumento + ".pdf"));
 		Cronometro.start();
 		System.out.println("Criando o documento");
 	}
@@ -59,9 +58,9 @@ PDF {
 
 			document.open();
 
-			Image logoIRP = Image.getInstance(System.getProperty("user.dir") + "/src/img/LogoIRP.png");
-			logoIRP.scaleAbsolute(50, 50);
-			logoIRP.setAlignment(Element.ALIGN_CENTER);
+			Image logoClaroMusica = Image.getInstance(System.getProperty("user.dir") + "/src/img/LogoClaroMusica.png");
+			logoClaroMusica.scaleAbsolute(50, 50);
+			logoClaroMusica.setAlignment(Element.ALIGN_CENTER);
 			Image logoImusica = Image.getInstance(System.getProperty("user.dir") + "/src/img/LogoImusica.png");
 			logoImusica.scaleAbsolute(50, 50);
 			logoImusica.setAlignment(Element.ALIGN_CENTER);
@@ -79,7 +78,7 @@ PDF {
 			cellHeader2.setPaddingTop(15);
 
 			PdfPCell cellHeader3 = new PdfPCell();
-			cellHeader3.addElement(logoIRP);
+			cellHeader3.addElement(logoClaroMusica);
 
 			table.addCell(cellHeader1);
 			table.addCell(cellHeader2);
@@ -178,7 +177,7 @@ PDF {
 
 			PdfPCell print = new PdfPCell(new PdfPCell(img));
 			print.setPaddingTop(10);
-			img.scaleAbsolute(550, 650);
+			img.scaleAbsolute(100, 250);
 			img.setAlignment(Element.ALIGN_CENTER);
 			print.addElement(img);
 			print.setBorder(-1);
@@ -192,17 +191,13 @@ PDF {
 	public static void salvaDocumento() {
 		try {
 			Cronometro.stop();
-
 			document.add(table);
 			contador = 1;
-
 			document.close();
-
 			// Limpa os prints da pasta
 			File diretorio = new File("C:\\Automacao\\Img\\");
 			System.gc();
 			FileUtils.cleanDirectory(diretorio);
-
 			System.out.println("Salva o documento");
 		} catch (Exception e) {
 
@@ -229,7 +224,6 @@ PDF {
 		table.addCell(tituloLog);
 
 		PdfPCell textoloLog = new PdfPCell(new Paragraph(componente));
-		// textoLog = new PdfPCell(new Paragraph(parametro));
 		textoloLog.setColspan(3);
 		textoloLog.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
 		textoloLog.setBorder(-1);

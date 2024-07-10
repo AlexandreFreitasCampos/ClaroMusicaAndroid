@@ -16,22 +16,17 @@ public class DriverFactory {
 
     // Método para acessar o metodo createDriver
     public static AndroidDriver<?> getDriver()  {
-
         criaPastas();
         // Se o driver for nulo, cria um novo driver
         if (driver == null) {
-
             createDriver();
-
         }
         return driver;
-
     }
 
     private static void criaPastas() {
-
         // Caminho das pastas
-        File evidencias = new File("C:\\Automacao\\Evidencias");
+        File evidencias = new File("C:\\Automacao\\Evidencias\\Claro Musica Android");
         File img = new File("C:\\Automacao\\Img");
         File log = new File("C:\\Automacao\\Log");
         File Massa = new File("C:\\Automacao\\Massa de dados");
@@ -40,19 +35,14 @@ public class DriverFactory {
         if (!evidencias.exists()) {
             evidencias.mkdirs();
         }
-
         // Se não existir, cria o diretório
         if (!img.exists()) {
             img.mkdirs();
         }
-
-
         // Se não existir, cria o diretório
         if (!log.exists()) {
             log.mkdirs();
         }
-
-
         // Se não existir, cria o diretório
         if (!Massa.exists()) {
             Massa.mkdirs();

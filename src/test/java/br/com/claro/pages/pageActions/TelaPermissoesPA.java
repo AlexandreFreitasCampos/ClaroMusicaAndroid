@@ -7,11 +7,8 @@ import static br.com.claro.utils.PDF.*;
 
 public class TelaPermissoesPA {
     public TelaPermissoesPA() {
-
     }
-
     private boolean existe;
-
     public static void criaArquivoPDF(String string) {
         try {
             criaDocumento(string);
@@ -23,7 +20,6 @@ public class TelaPermissoesPA {
             escreveErroException(e.getMessage());
         }
     }
-
     public static void validarImagem(String string) {
         try {
             switch (string) {
@@ -35,8 +31,8 @@ public class TelaPermissoesPA {
                     inserePrint();
                     if (AcoesAndroid.validarElementoPresente(TelaPermissoesPO.logoPermissoes1)) {
                         escreveDocumento("Ícone Claro Música");
-                    } else {
-                        escreveErroException("Ícone Claro Música");
+                    } else{
+                        escreveErroException("Ícone Música não encontrado!!!");
                     }
                     break;
                 case "logo claro musica2":
@@ -49,29 +45,29 @@ public class TelaPermissoesPA {
                 case "Ícone de telefone":
                     if (AcoesAndroid.validarElementoPresente(TelaPermissoesPO.iconeTelefone)) {
                         escreveDocumento(string);
-                    } else {
-                        escreveErroException(string);
+                    } else{
+                        escreveErroException(string + " não encontrado!!!");
                     }
                     break;
                 case "Ícone de email":
                     if (AcoesAndroid.validarElementoPresente(TelaPermissoesPO.iconeEmail)) {
                         escreveDocumento(string);
-                    } else {
-                        escreveErroException(string);
+                    } else{
+                        escreveErroException(string + " não encontrado!!!");
                     }
                     break;
                 case "Ícone de informações":
                     if (AcoesAndroid.validarElementoPresente(TelaPermissoesPO.iconeInformacoes)) {
                         escreveDocumento(string);
-                    } else {
-                        escreveErroException(string);
+                    } else{
+                        escreveErroException(string + " não encontrado!!!");
                     }
                     break;
                 case "Ícone dados demograficos":
                     if (AcoesAndroid.validarElementoPresente(TelaPermissoesPO.iconeDadosDemoraficos)) {
                         escreveDocumento(string);
-                    } else {
-                        escreveErroException(string);
+                    } else{
+                        escreveErroException(string + " não encontrado!!!");
                     }
                     break;
             }
@@ -79,7 +75,6 @@ public class TelaPermissoesPA {
             escreveErroException(e.getMessage());
         }
     }
-
     public static void validarTexto(String string) {
         switch (string) {
             case "Bem-vindo ao novo Claro música!":
@@ -113,18 +108,16 @@ public class TelaPermissoesPA {
                 AcoesAndroid.validarTexto(string, TelaPermissoesPO.textoParaRealizar);
                 break;
             case "Aceitar e continuar":
-                AcoesAndroid.validarBotao(string, TelaPermissoesPO.btnAceitarContinuar);
+                AcoesAndroid.validarTexto(string, TelaPermissoesPO.btnAceitarContinuar);
                 break;
             case "Recusar permissões e sair":
                 AcoesAndroid.validarTexto(string, TelaPermissoesPO.linkRecusar);
                 break;
         }
     }
-
     public static void clicarBotao(String string) {
         AcoesAndroid.clicarBotao(TelaPermissoesPO.btnAceitarContinuar);
     }
-
     public static void salvarDocumento() {
         salvaDocumento();
     }

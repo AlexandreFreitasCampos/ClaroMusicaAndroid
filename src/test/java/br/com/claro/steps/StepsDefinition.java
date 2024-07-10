@@ -1,9 +1,12 @@
 package br.com.claro.steps;
 
 
+import br.com.claro.pages.pageActions.LandingPagePA;
+import br.com.claro.pages.pageActions.CadastroMSISDNPA;
+import br.com.claro.pages.pageActions.OnboardingPA;
 import br.com.claro.pages.pageActions.TelaPermissoesPA;
+import br.com.claro.utils.AcoesAndroid;
 import br.com.claro.utils.DriverFactory;
-import br.com.claro.utils.PDF;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
@@ -16,33 +19,71 @@ public class StepsDefinition {
     @Dado("que criei o arquivo {string}")
     public void queCrieiOArquivo(String string) {
         switch (string){
-            case "validar_textos_tela_de_permissoes":
+            case "tela_de_permissoes":
                 TelaPermissoesPA.criaArquivoPDF(string);
                 break;
+            case "landing_page":
+                LandingPagePA.criarArquivoPDF(string);
+                break;
+            case "cadastro_msisdn":
+                CadastroMSISDNPA.criarArquivoPDF(string);
+                break;
+            case "onboarding":
+                OnboardingPA.criarArquivoPDF(string);
+                break;
         }
-
     }
     @Quando("valido a imagem {string} {string}")
     public void validoAImagem(String string, String string2) {
         if(string2.equals("Tela de permissões")){
             TelaPermissoesPA.validarImagem(string);
+        }else if (string2.equals("Landing Page")) {
+            LandingPagePA.validarImagem(string);
+        }else if (string2.equals("CadastroMSISDN")) {
+            CadastroMSISDNPA.validarImagem(string);
+        }else if (string2.equals("Onboarding")) {
+            OnboardingPA.validarImagem(string);
         }
     }
     @Quando("valido o texto {string} {string}")
     public void validoOTexto(String string, String string2) {
         if(string2.equals("Tela de permissões")){
             TelaPermissoesPA.validarTexto(string);
+        }else if(string2.equals("Landing Page")){
+            LandingPagePA.validarTexto(string);
+        }else if(string2.equals("CadastroMSISDN")){
+            CadastroMSISDNPA.validarTexto(string);
+        }else if(string2.equals("Onboarding")){
+            OnboardingPA.validarTexto(string);
         }
+
     }
     @E("clico no botao {string} {string}")
     public void clicoNoBotao(String string, String string2) {
         if(string2.equals("Tela de permissões")){
             TelaPermissoesPA.clicarBotao(string);
+        }else if(string2.equals("Landing Page")){
+            LandingPagePA.clicarBotao();
+        }else if(string2.equals("CadastroMSISDN")){
+            CadastroMSISDNPA.clicarBotao(string);
+        }else if(string2.equals("Onboarding")){
+            OnboardingPA.clicarBotao(string);
         }
     }
+    @Quando("insiro o texto {string} {string}")
+    public void insiroOTexto(String string, String string2) {
+        if(string2.equals("CadastroMSISDN")){
+            CadastroMSISDNPA.inserirTexto(string);
+        }
+    }
+    @Entao("seleciono os {int} primeiros artistas {string}")
+    public void selecionoOsPrimeirosArtistas(Integer artistas, String string) {
+            OnboardingPA.selecionarArtistas(artistas);
+    }
+
     @Entao("salvo o documento")
     public void salvoODocumento() {
-        PDF.salvaDocumento();
+        AcoesAndroid.salvarDocumento();
     }
 
 }
