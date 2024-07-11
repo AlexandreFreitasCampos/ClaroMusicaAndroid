@@ -64,7 +64,7 @@ public class DriverFactory {
         desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
         desiredCapabilities.setCapability("appium:newCommandTimeout", 3600);
         desiredCapabilities.setCapability("appium:connectHardwareKeyboard", true);
-        desiredCapabilities.setCapability("noReset", false);
+        desiredCapabilities.setCapability("noReset", true);
         // Para instalar um APK (desmarcar appPackage e appActivity
         // desiredCapabilities.setCapability(MobileCapabilityType.APP, "Caminho do
         // APP");XXXO
