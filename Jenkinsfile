@@ -7,10 +7,15 @@ pipeline {
                 git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
             }
         }
-        stage('Regressivo Claro Musica') {
+        stage('Validar tela de permissões') {
             steps {
-                bat 'mvn clean test'
+                bat 'mvn test -Dcucumber.features=src/test/resources/features/permissoes.feature'
             }
-        }       
+        }    
+        stage('Validar a Landing Pages') {
+            steps {
+                bat 'mvn test -Dcucumber.features=src/test/resources/features/landing.feature'
+            }
+        }    
     }
 }
