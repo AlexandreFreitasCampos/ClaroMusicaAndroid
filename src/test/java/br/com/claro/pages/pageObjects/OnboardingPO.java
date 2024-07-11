@@ -11,4 +11,5 @@ public class OnboardingPO {
     public static String listaArtistas = "(//android.view.View[@content-desc='Top Artist Card'])";
     public static String btnPular = "//android.widget.TextView[@text='Pular']";
     public static String btnContinuar = "//android.widget.TextView[@text='Continuar']";
+    public static String inputSMS = "//android.widget.TextView[@text='0 0 0 0 0 0']";
 }
