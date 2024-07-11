@@ -7,10 +7,10 @@ pipeline {
                 git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
             }
         }
-        stage('Regressivo Claro Musica') {
+        stage('Validar a Landing Pages') {
             steps {
-                bat 'mvn clean test'
+                bat 'mvn test -Dcucumber.features=src/test/resources/features/landing.feature'
             }
-        }       
+        }
     }
 }

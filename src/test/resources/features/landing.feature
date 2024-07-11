@@ -7,7 +7,7 @@ Funcionalidade: Testes exploratórios na aplicação
   Quero efetuar testes exploratórios
   garantir as funcionalidades da aplicação
   E melhorar o tempo de execução
-  
+
   Cenario: Validar a landing page
     Dado que criei o arquivo "landing_page"
     Quando valido a imagem "Logo Claro Musica superior" "Landing Page"

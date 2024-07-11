@@ -2,20 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Checar URL') {
+        stage('Job 1 - Validar Permissões') {
             steps {
-                git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
+                script {
+                    // Aqui você pode definir os passos específicos para o Job 1
+                    git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
+                    bat 'mvn test -Dcucumber.features=src/test/resources/features/permissoes.feature'
+                }
             }
         }
-        stage('Validar tela de permissões') {
+        
+        stage('Job 2 - Validar Landing Pages') {
             steps {
-                bat 'mvn test -Dcucumber.features=src/test/resources/features/permissoes.feature'
+                script {
+                    // Aqui você pode definir os passos específicos para o Job 2
+                    git 'https://github.com/AlexandreFreitasCampos/ClaroMusicaAndroid.git'
+                    bat 'mvn test -Dcucumber.features=src/test/resources/features/landing.feature'
+                }
             }
-        }    
-        stage('Validar a Landing Pages') {
-            steps {
-                bat 'mvn test -Dcucumber.features=src/test/resources/features/landing.feature'
-            }
-        }    
+        }
     }
 }
