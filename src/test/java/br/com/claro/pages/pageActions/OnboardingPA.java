@@ -170,7 +170,7 @@ public class OnboardingPA {
                 break;
             case "Permitir":
                     try {
-                        Thread.sleep(3000);
+                        Thread.sleep(5000);
                         if(AcoesAndroid.validarElementoPresente(OnboardingPO.btnPermitir)){
                             AcoesAndroid.clicarBotao(OnboardingPO.btnPermitir);
                         }
