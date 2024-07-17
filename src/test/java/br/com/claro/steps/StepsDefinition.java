@@ -7,20 +7,29 @@ import br.com.claro.pages.pageActions.OnboardingPA;
 import br.com.claro.pages.pageActions.TelaPermissoesPA;
 import br.com.claro.utils.AcoesAndroid;
 import br.com.claro.utils.DriverFactory;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+import org.junit.BeforeClass;
 
 public class StepsDefinition {
     public StepsDefinition() {
         DriverFactory.getDriver();
     }
+
     @Dado("que criei o arquivo {string}")
     public void queCrieiOArquivo(String string) {
         switch (string){
             case "tela_de_permissoes":
                 TelaPermissoesPA.criaArquivoPDF(string);
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "landing_page":
                 LandingPagePA.criarArquivoPDF(string);
@@ -29,6 +38,7 @@ public class StepsDefinition {
                 CadastroMSISDNPA.criarArquivoPDF(string);
                 break;
             case "onboarding":
+                AcoesAndroid.limparMsisdnSac("5521966124127", "alexandre.campos", "@Gg190504");
                 OnboardingPA.criarArquivoPDF(string);
                 break;
         }

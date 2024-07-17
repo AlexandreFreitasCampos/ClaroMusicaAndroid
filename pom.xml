@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.claro</groupId>
-    <artifactId>IRP</artifactId>
+    <artifactId>ClaroMusicaAndroid</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -83,6 +83,13 @@
             <artifactId>java-client</artifactId>
             <version>7.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>

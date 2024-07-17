@@ -59,8 +59,22 @@ Funcionalidade: Testes exploratórios na aplicação
     E clico no botao "Seguinte" "CadastroMSISDN"
     Entao salvo o documento
 
-  Cenario: Realizar o onboarding
+  Cenario: Pular / Realizar o onboarding
     Dado que criei o arquivo "onboarding"
+    Quando clico no botao "Pular" "Onboarding"
+    E valido o texto "Vamos começar!" "Onboarding"
+    E valido o texto "Aproveite essas músicas enquanto descobrimos mais sobre você" "Onboarding"
+    E valido a imagem "Botão Tocar agora" "Onboarding"
+    E valido a imagem "Botão Agora não" "Onboarding"
+    E clico no botao "Tocar agora" "Onboarding"
+    E clico no botao "Permitir" "Onboarding"
+    E valido o texto "Bem-vindo! Aproveite grátis" "Onboarding"
+    E clico no botao "Entendido" "Onboarding"
+    Quando valido o texto "Quais artistas você mais gosta?" "Onboarding"
+    E valido o texto "Cliente Claro, temos uma promoção pra você escutar música ilimitada!" "Onboarding"
+    E clico no botao "Fechar oferta grátis" "Onboarding"
+    E clico no botao "Pausar a música" "Onboarding"
+    Entao clico no botao "Realizar Onboarding" "Onboarding"
     Quando valido o texto "Escolha pelo menos 3 artistas que você goste" "Onboarding"
     E valido a imagem "Campo de busca" "Onboarding"
     E seleciono os 1 primeiros artistas "Onboarding"
