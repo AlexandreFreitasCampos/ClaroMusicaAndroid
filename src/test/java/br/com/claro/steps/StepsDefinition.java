@@ -1,10 +1,7 @@
 package br.com.claro.steps;
 
 
-import br.com.claro.pages.pageActions.LandingPagePA;
-import br.com.claro.pages.pageActions.CadastroMSISDNPA;
-import br.com.claro.pages.pageActions.OnboardingPA;
-import br.com.claro.pages.pageActions.TelaPermissoesPA;
+import br.com.claro.pages.pageActions.*;
 import br.com.claro.utils.AcoesAndroid;
 import br.com.claro.utils.DriverFactory;
 import io.cucumber.java.Before;
@@ -25,11 +22,7 @@ public class StepsDefinition {
         switch (string){
             case "tela_de_permissoes":
                 TelaPermissoesPA.criaArquivoPDF(string);
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                //AcoesAndroid.limparMsisdnSac("5521966124127", "alexandre.campos", "@Gg190504");
                 break;
             case "landing_page":
                 LandingPagePA.criarArquivoPDF(string);
@@ -38,8 +31,10 @@ public class StepsDefinition {
                 CadastroMSISDNPA.criarArquivoPDF(string);
                 break;
             case "onboarding":
-                AcoesAndroid.limparMsisdnSac("5521966124127", "alexandre.campos", "@Gg190504");
                 OnboardingPA.criarArquivoPDF(string);
+                break;
+            case "assinatura_mensal":
+                PlanoMensalPA.criarArquivoPDF(string);
                 break;
         }
     }
@@ -53,6 +48,8 @@ public class StepsDefinition {
             CadastroMSISDNPA.validarImagem(string);
         }else if (string2.equals("Onboarding")) {
             OnboardingPA.validarImagem(string);
+        }else if (string2.equals("Plano mensal")) {
+            PlanoMensalPA.validarImagem(string);
         }
     }
     @Quando("valido o texto {string} {string}")
@@ -65,6 +62,8 @@ public class StepsDefinition {
             CadastroMSISDNPA.validarTexto(string);
         }else if(string2.equals("Onboarding")){
             OnboardingPA.validarTexto(string);
+        }else if(string2.equals("Plano mensal")){
+            PlanoMensalPA.validarTexto(string);
         }
 
     }
@@ -78,6 +77,10 @@ public class StepsDefinition {
             CadastroMSISDNPA.clicarBotao(string);
         }else if(string2.equals("Onboarding")){
             OnboardingPA.clicarBotao(string);
+        }else if(string2.equals("Perfil")){
+            MenuPerfilPA.clicarBotao(string);
+        }else if(string2.equals("Plano mensal")){
+            PlanoMensalPA.clicarBotao(string);
         }
     }
     @Quando("insiro o texto {string} {string}")
@@ -90,10 +93,15 @@ public class StepsDefinition {
     public void selecionoOsPrimeirosArtistas(Integer artistas, String string) {
             OnboardingPA.selecionarArtistas(artistas);
     }
+    @Quando("valido o carrossel {string} {string}")
+    public void validoOCarrossel(String string, String string2) {
+        if(string2.equals("Home")){
+            HomePA.validarCarrossel(string);
+        }
+    }
 
     @Entao("salvo o documento")
     public void salvoODocumento() {
         AcoesAndroid.salvarDocumento();
     }
-
 }

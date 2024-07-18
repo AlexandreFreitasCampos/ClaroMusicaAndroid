@@ -44,6 +44,10 @@ public class AcoesAndroid extends DriverFactory {
         getDriver().findElement(By.xpath(string)).click();
     }
 
+    public static String obterTexto(String string) {
+        return getDriver().findElement(By.xpath(string)).getText();
+    }
+
     public static void validarTexto(String textoAtual, String xpath) {
         try {
             textoRecebido = getDriver().findElement(By.xpath(xpath)).getText();
