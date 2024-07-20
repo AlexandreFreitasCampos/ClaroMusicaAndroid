@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 		, dryRun =  false //Valida se os steps estão corretos sem executar os testes
 		)
 
-public class Permissoes23 {
+public class Permissoes {
 	@AfterClass
 	public static void fecharBrowser() {
 		//DriverFactory.killDriver();

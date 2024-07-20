@@ -11,14 +11,14 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		features =  {"src/test/resources/features/claromusica.feature"}
 		, glue =  {"br.com.claro.steps", "br.com.claro.utils"}
-		, tags = "@permissoes and @landing"
+		, tags = "@permissoes or @landing"
 		, plugin =  {"pretty",  "json:target/cucumber.json"}
 		, monochrome =  false //não coloca a tela colorida
 		, snippets =  SnippetType.CAMELCASE //Remove o _ no nome dos métodos
 		, dryRun =  false //Valida se os steps estão corretos sem executar os testes
 		)
 
-public class Landing23 {
+public class Landing {
 	@AfterClass
 	public static void fecharBrowser() {
 		//DriverFactory.killDriver();
