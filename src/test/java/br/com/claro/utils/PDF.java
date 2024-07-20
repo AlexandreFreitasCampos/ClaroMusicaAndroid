@@ -217,13 +217,12 @@ PDF {
 
 		font = new Font(Font.HELVETICA, 16, Font.BOLDITALIC, new Color(255, 0, 0));
 		PdfPCell tituloLog = new PdfPCell(new Paragraph("Falha na execução do teste!!!", font));
-		// textoLog = new PdfPCell(new Paragraph(parametro));
 		tituloLog.setColspan(3);
 		tituloLog.setHorizontalAlignment(Element.ALIGN_CENTER);
 		tituloLog.setBorder(-1);
 		table.addCell(tituloLog);
 
-		PdfPCell textoloLog = new PdfPCell(new Paragraph(componente));
+		PdfPCell textoloLog = new PdfPCell(new Paragraph(componente + " não encontrado!!!"));
 		textoloLog.setColspan(3);
 		textoloLog.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
 		textoloLog.setBorder(-1);

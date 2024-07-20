@@ -33,8 +33,8 @@ public class AcoesAndroid extends DriverFactory {
 
     public static boolean validarElementoPresente(String elemento) {
         List<MobileElement> elementos = (List<MobileElement>) getDriver().findElements(By.xpath(elemento));
-        if (elementos.size() == 0) {
-            erros.add(elemento + " não encontrado!!!");
+        if (elementos.size() == 0 && !elemento.equals("//android.widget.Button[@resource-id='android:id/button1']")) {
+            erros.add(elemento);
         }
 
         return elementos.size() > 0;

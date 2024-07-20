@@ -203,7 +203,6 @@ public class OnboardingPA {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                AcoesAndroid.scrollAte("//android.widget.TextView[@text='Top Podcasts']");
                 break;
         }
     }

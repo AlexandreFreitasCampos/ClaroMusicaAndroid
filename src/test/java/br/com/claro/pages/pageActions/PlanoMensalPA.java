@@ -35,6 +35,12 @@ public class PlanoMensalPA {
                     AcoesAndroid.aguardaElementoPresente(PlanosPO.txtMSISDN);
                     inserePrint();
                     break;
+                case "Iniciar ilimitado":
+                    AcoesAndroid.clicarBotao(PlanosPO.btnIniciarIlimitado);
+                    break;
+                case "Entendido":
+                    AcoesAndroid.clicarBotao(PlanosPO.txtEntendido);
+                    break;
             }
         }catch (Exception e){
             escreveErroException(e.getMessage());
@@ -94,7 +100,7 @@ public class PlanoMensalPA {
             case "Forma de pagamento: Claro":
                 String formaPagamento = AcoesAndroid.obterTexto(PlanosPO.txtFormaPagamento);
                 String claro = AcoesAndroid.obterTexto(PlanosPO.txtClaro);
-                if(string.equals(formaPagamento + claro)){
+                if(string.equals(formaPagamento + " " + claro)){
                     escreveDocumento(formaPagamento + " " + claro);
                 }else{
                     escreveErroException(formaPagamento + claro);
@@ -103,11 +109,12 @@ public class PlanoMensalPA {
             case "Periodicidade: Mensal":
                 String periodicidade = AcoesAndroid.obterTexto(PlanosPO.txtPeriodicidade);
                 String mensal = AcoesAndroid.obterTexto(PlanosPO.txtPeriodo);
-                if(string.equals(periodicidade + mensal)){
+                if(string.equals(periodicidade + " " + mensal)){
                     escreveDocumento(periodicidade + " " + mensal);
                 }else{
                     escreveErroException(periodicidade + " " + mensal);
                 }
+                break;
             case "Pague com seu número":
                 AcoesAndroid.validarTexto(string, PlanosPO.txtPagueCom);
                 break;
@@ -119,6 +126,39 @@ public class PlanoMensalPA {
                 break;
             case "ALTERAR FORMA DE PAGAMENTO":
                 AcoesAndroid.validarTexto(string, PlanosPO.txtAlterarFormaPagamento);
+                break;
+            case "Claro música Ilimitado":
+                escreveStep("Validar a tela de Bem vindo e clicar no botão Entendido");
+                AcoesAndroid.aguardaElementoPresente(PlanosPO.txtClaro);
+                inserePrint();
+                String claroMusicaIlimitado = AcoesAndroid.obterTexto(PlanosPO.txtClaro);
+                String musica = AcoesAndroid.obterTexto(PlanosPO.txtMusica);
+                String ilimitado = AcoesAndroid.obterTexto(PlanosPO.txtIlimitado);
+                if(string.equals(claroMusicaIlimitado + " " + musica + " " + ilimitado)){
+                    escreveDocumento(claroMusicaIlimitado + " " + musica + " " + ilimitado);
+                }else{
+                    escreveErroException(claroMusicaIlimitado + " " + musica + " " + ilimitado);
+                }
+                break;
+            case "Bem-vindo ao":
+                AcoesAndroid.validarTexto(string, PlanosPO.txtBemVindo);
+                break;
+            case ":l:":
+                string = "Claro";
+                String musica2  = AcoesAndroid.obterTexto(PlanosPO.txtMusica2);
+                if(AcoesAndroid.validarElementoPresente(PlanosPO.imgLogoClaro)){
+                    escreveDocumento(string + " "  + musica2);
+                }else{
+                    escreveErroException(string + " "  + musica2);
+                }
+                break;
+            case "ilimitado":
+                if(AcoesAndroid.validarElementoPresente( PlanosPO.txtilimitado)){
+                    AcoesAndroid.validarTexto(string, PlanosPO.txtilimitado);
+                }
+                break;
+            case "Entendido":
+                AcoesAndroid.validarTexto(string, PlanosPO.txtEntendido);
                 break;
         }
     }
@@ -152,6 +192,13 @@ public class PlanoMensalPA {
                         escreveDocumento(string);
                     } else{
                         escreveErroException(string + " não encontrado!!!");
+                    }
+                    break;
+                case "Botão fechar":
+                    if (AcoesAndroid.validarElementoPresente(PlanosPO.btnFechar)) {
+                        escreveDocumento(string);
+                    } else{
+                        escreveErroException(string);
                     }
                     break;
             }

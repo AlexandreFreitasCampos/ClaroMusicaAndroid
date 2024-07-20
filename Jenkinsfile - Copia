@@ -10,17 +10,10 @@ pipeline {
             }
         }
         
-        stage('Permissoes') {
+        stage('Testes Claro Musica') {
             steps {
                 script {
-                    bat 'mvn test -Dtest=Permissoes'
-                }
-            }
-        }
-        stage('Landing') {
-            steps {
-                script {
-                    bat 'mvn test -Dtest=Landing'
+                    bat 'mvn clean test'
                 }
             }
         }

@@ -22,7 +22,7 @@ public class StepsDefinition {
         switch (string){
             case "tela_de_permissoes":
                 TelaPermissoesPA.criaArquivoPDF(string);
-                //AcoesAndroid.limparMsisdnSac("5521966124127", "alexandre.campos", "@Gg190504");
+                AcoesAndroid.limparMsisdnSac("5521966124127", "alexandre.campos", "@Gg190504");
                 break;
             case "landing_page":
                 LandingPagePA.criarArquivoPDF(string);
