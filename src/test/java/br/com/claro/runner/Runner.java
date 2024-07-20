@@ -11,11 +11,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features =  {
-				"src/test/resources/features/"
-				     }
+		features =  {"src/test/resources/features/claromusica.feature"}
 		, glue =  {"br.com.claro.steps", "br.com.claro.utils"}
-		, tags =  ""
+		, tags =  "@permissoes and @landing"
 		, plugin =  {"pretty",  "json:target/cucumber.json"}
 		, monochrome =  false //não coloca a tela colorida
 		, snippets =  SnippetType.CAMELCASE //Remove o _ no nome dos métodos
